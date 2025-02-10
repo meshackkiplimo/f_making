@@ -22,8 +22,8 @@ def index():
 def get_student(student_id: int):
     return students[student_id]
 
-@app.get("/get-by-name")
-def get_student(*,name: Optional[str]=None, test : int):
+@app.get("/get-by-name/{student_id}")
+def get_student(*,student_id:int, name: Optional[str]=None, test : int=None):
     for student_id in students:
         if students[student_id]["name"]==name:
             return students[student_id]
